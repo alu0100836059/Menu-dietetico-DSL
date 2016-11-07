@@ -1,21 +1,21 @@
 require "spec_helper"
 require "menu_dietetico"
-
-# describe MenuDietetico do
-  
-#   it "has a version number" do
-#     expect(MenuDietetico::VERSION).not_to be nil
-#   end
-  
-#   it "does something useful i.e" do
-#     expect(false).to eq(false)
-#   end
-
+require "menu_comida"
 
 describe MenuDietetico do
   before :all do
+    
+    # Elemento/s de la nueva clase Menu_dietetico
     @menu_1 = MenuDietetico::Menu_dietetico.new()
-    @nodo_1 = MenuDietetico::Node.new("Macarrones", nil)
+    
+    # Comidas del día
+    @comida_1 = Menu_comida.new("MEDIA MAÑANA","10%",["Cerezas",
+                "Galletas bifidus con sésamo"], ["10-12 unidades medianas", "4 unidades"], [12,40], 255.5, 7, 24, 69)
+    
+    
+    @nodo_1 = MenuDietetico::Node.new(@comida_1, nil)
+    
+    
   end
   
   
