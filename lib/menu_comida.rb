@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Menu_comida
 	attr_accessor :title, :porcentaje, :platos, :porcion, :gramos, :vct, :p_proteinas, :p_grasas, :p_hidratos 
 	
@@ -55,8 +56,15 @@ class Menu_comida
 	end
 	
 	def to_s
+	@platos_final = ""
+	total = @platos.length
+	cont = 0
+	while cont < total do
+	@platos_final<<"- "<<@platos[cont]<<", "<<@porcion[cont]<<", "<<@gramos[cont]<<"\n"
+	cont += 1
+	end
 	
-	"#{@title} (#{@porcentaje})\n- #{@platos[0]}, #{@porcion}, #{@gramos} g\n"+
+	"#{@title} (#{@porcentaje})\n#{@platos_final}"+
 	"V.C.T. | %\t#{@vct} kcal | #{@p_proteinas}% - #{@p_grasas}"+
 	"% - #{@p_hidratos}%"
 	end

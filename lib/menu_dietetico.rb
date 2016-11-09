@@ -30,31 +30,31 @@ module MenuDietetico
         @num_nodos += 1
     end
     
-#     def extract_first
+    def extract_first
        
-#       if @head.value == nil
-#           puts "\nLista vacía, nada que extraer\n"
-#       else
-#           aux = @head
-#           @head = aux.next
-#           return aux
-#       end
-#     end
+      if @head.value == nil
+          puts "\nLista vacía, nada que extraer\n"
+      else
+          aux = @head
+          @head = aux.next
+          return aux
+      end
+    end
     
-#     def extract_last
+    def extract_last
         
-#         if @head.value == nil
-#             puts "Lista vacía, nada que extraer"
-#         else
-#             aux = @head
-#             while aux.next.next != nil
-#                 aux = aux.next
-#             end
-#             aux_2 = aux.next
-#             aux.next = nil
-#             return aux_2
-#         end
-#     end
+        if @head.value == nil
+            puts "Lista vacía, nada que extraer"
+        else
+            aux = @head
+            while aux.next.next != nil
+                aux = aux.next
+            end
+            aux_2 = aux.next
+            aux.next = nil
+            return aux_2
+        end
+    end
     
 #     def to_s
 #         aux = @head

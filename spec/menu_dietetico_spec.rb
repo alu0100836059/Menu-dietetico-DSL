@@ -12,7 +12,7 @@ describe MenuDietetico do
     @comida_1 = Menu_comida.new("DESAYUNO", "15%", ["Leche desnatada", "Cacao instantáneo",
                 "Cereales de desayuno en hojuelas", "Almendras laminadas"],
                 ["1 vaso", "1 c/sopera", "1 bol pequeño", 
-                "(10 unidades) 2 c/soperas"], [200, 10, 40, 10],
+                "(10 unidades) 2 c/soperas"], ["200 ml", "10 g", "40 g", "10 g"],
                 288.0, 17, 21, 62)
     @comida_2 = Menu_comida.new("MEDIA MAÑANA","10%",["Cerezas",
                 "Galletas bifidus con sésamo"], ["10-12 unidades medianas",
@@ -22,6 +22,14 @@ describe MenuDietetico do
     # Nodos del Struct creado en el nuevo archivo
     @nodo_1 = MenuDietetico::Node.new(@comida_1, nil)
     @nodo_2 = MenuDietetico::Node.new(@comida_2, nil)
+    
+    
+    # variables para las comparaciones
+    @menu_desayuno = "DESAYUNO (15%)\n- Leche desnatada, 1 vaso, 200 ml\n"+
+                     "- Cacao instantáneo, 1 c/sopera, 10g\n"+
+                     "- Cereales de desayuno en hojuelas, 1 bol pequeño, 40 g\n"+
+                     "- Almendras laminadas, (10 unidades) 2 c/soperas, 10 g\n"+
+                     "V.V.T. | %\t288.0 kcal | 17% - 21% - 62%"
     
   end
   
@@ -36,6 +44,10 @@ describe "Debe existir un nodo de la lista con su valor y siguiente" do
   
   it "El nodo contiene los datos correctos" do 
     # falta
+    puts @nodo_1.value
+    nodo_1_lista = @menu_1.extract_first
+    expect("#{nodo_1_lista.to_s}").to eq(@menu_desayuno)
+    
   end
   
   it "El nodo posee su siguiente" do
