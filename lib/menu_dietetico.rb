@@ -56,19 +56,19 @@ module MenuDietetico
         end
     end
     
-#     def to_s
-#         aux = @head
-#         if aux.value == nil
-#             puts "Lista vacía"
-#         else
-#             while aux.next != nil
-#                 puts aux.value
-#                 aux = aux.next
-#             end
-#         puts aux.value
-#         end
-#     end
-   end #end class
+    def to_s
+        aux = @head
+        if aux.value == nil
+            puts "Lista vacía"
+        else
+            while aux.next != nil
+                puts aux.value
+                aux = aux.next
+            end
+        puts aux.value
+        end
+    end
+ end #end class
   
   
 end #end module

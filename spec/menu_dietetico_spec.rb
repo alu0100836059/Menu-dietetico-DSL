@@ -40,19 +40,29 @@ describe "Debe existir un nodo de la lista con su valor y siguiente" do
     expect(@menu_1.get_num_nodos).to eq 0
     @menu_1.insert(@nodo_1)
     expect(@menu_1.get_num_nodos).to eq 1
-  end
-  
-  it "El nodo contiene los datos correctos" do 
-    # falta
-    puts @nodo_1.value
-    nodo_1_lista = @menu_1.extract_first
-    expect("#{nodo_1_lista.to_s}").to eq(@menu_desayuno)
-    
+    # expect(@menu_1.extract_first).to exist
   end
   
   it "El nodo posee su siguiente" do
-    # falta
+    @menu_1.insert(@nodo_1)
+    puts @comida_1
+    puts 
+    puts
+    puts @nodo_1.value
+    # expect(@menu_1.extract_first.next).to_not be_nil
   end
+  
+  it "Se puede acceder a un nodo a través de un índice" do
+    
+  end
+  
+  # it "El nodo contiene los datos correctos" do 
+  #   puts @menu_desayuno
+  #   @nodo_1_lista = @menu_1.extract_first.to_s
+  #   puts @nodo_1_lista
+  #   expect("#{@nodo_1_lista.to_s}").to eq(@menu_desayuno)
+    
+  # end
   
   
 end
