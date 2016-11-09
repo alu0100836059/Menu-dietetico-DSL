@@ -26,10 +26,10 @@ describe MenuDietetico do
     
     # variables para las comparaciones
     @menu_desayuno = "DESAYUNO (15%)\n- Leche desnatada, 1 vaso, 200 ml\n"+
-                     "- Cacao instantáneo, 1 c/sopera, 10g\n"+
+                     "- Cacao instantáneo, 1 c/sopera, 10 g\n"+
                      "- Cereales de desayuno en hojuelas, 1 bol pequeño, 40 g\n"+
                      "- Almendras laminadas, (10 unidades) 2 c/soperas, 10 g\n"+
-                     "V.V.T. | %\t288.0 kcal | 17% - 21% - 62%"
+                     "V.C.T. | %\t288.0 kcal | 17% - 21% - 62%"
     
   end
   
@@ -40,29 +40,28 @@ describe "Debe existir un nodo de la lista con su valor y siguiente" do
     expect(@menu_1.get_num_nodos).to eq 0
     @menu_1.insert(@nodo_1)
     expect(@menu_1.get_num_nodos).to eq 1
-    # expect(@menu_1.extract_first).to exist
+    
+    # Revisar la documentación de to exist y como pasar la prueba
+    #expect(@menu_1.at(0)).to exist
   end
   
   it "El nodo posee su siguiente" do
-    @menu_1.insert(@nodo_1)
-    puts @comida_1
-    puts 
-    puts
-    puts @nodo_1.value
-    # expect(@menu_1.extract_first.next).to_not be_nil
+    @menu_1.insert(@nodo_2)
+    expect(@menu_1.at(0).next).to_not be_nil
+    
+    # Pruebas to_s
+    # puts @comida_1
+    # puts 
+    # puts
+    # puts @nodo_1.value
+    # puts @menu_1.at(0).value
   end
   
-  it "Se puede acceder a un nodo a través de un índice" do
-    
-  end
   
-  # it "El nodo contiene los datos correctos" do 
-  #   puts @menu_desayuno
-  #   @nodo_1_lista = @menu_1.extract_first.to_s
-  #   puts @nodo_1_lista
-  #   expect("#{@nodo_1_lista.to_s}").to eq(@menu_desayuno)
-    
-  # end
+  it "El nodo contiene los datos correctos" do 
+    @nodo_1_lista = @menu_1.at(0).value.to_s
+    expect(@nodo_1_lista).to eq(@menu_desayuno)
+  end
   
   
 end

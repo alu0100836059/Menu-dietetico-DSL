@@ -56,6 +56,16 @@ module MenuDietetico
         end
     end
     
+    def at(indice)
+        cont = 0
+        aux = @head
+        while cont < indice do
+            aux = aux.next
+        end
+        return aux
+    end
+    
+    
     def to_s
         aux = @head
         if aux.value == nil
