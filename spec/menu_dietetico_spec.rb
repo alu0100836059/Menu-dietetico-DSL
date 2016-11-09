@@ -6,7 +6,8 @@ describe MenuDietetico do
   before :all do
     
     # Elemento/s de la nueva clase Menu_dietetico
-    @menu_1 = MenuDietetico::Menu_dietetico.new()
+    @menu_1 = MenuDietetico::Menu_dietetico.new
+    @menu_2 = MenuDietetico::Menu_dietetico.new
     
     # Comidas del día
     @comida_1 = Menu_comida.new("DESAYUNO", "15%", ["Leche desnatada", "Cacao instantáneo",
@@ -34,7 +35,7 @@ describe MenuDietetico do
   end
   
   
-describe "Debe existir un nodo de la lista con su valor y siguiente" do
+describe "Node" do
   
   it "Existe un nodo en la lista" do
     expect(@menu_1.get_num_nodos).to eq 0
@@ -63,6 +64,14 @@ describe "Debe existir un nodo de la lista con su valor y siguiente" do
     expect(@nodo_1_lista).to eq(@menu_desayuno)
   end
   
-  
 end
+
+describe "List" do
+  
+  it "Se extrae el primer elemento de la lista" do
+    
+  end
+
+end
+
 end
