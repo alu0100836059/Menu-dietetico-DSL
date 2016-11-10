@@ -8,6 +8,8 @@ describe MenuDietetico do
     # Elemento/s de la nueva clase Menu_dietetico
     @menu_1 = MenuDietetico::Menu_dietetico.new
     @menu_2 = MenuDietetico::Menu_dietetico.new
+    @menu_3 = MenuDietetico::Menu_dietetico.new
+    @menu_4 = MenuDietetico::Menu_dietetico.new
     
     # Comidas del día
     @comida_1 = Menu_comida.new("DESAYUNO", "15%", ["Leche desnatada", "Cacao instantáneo",
@@ -49,13 +51,6 @@ describe "Node" do
   it "El nodo posee su siguiente" do
     @menu_1.insert(@nodo_2)
     expect(@menu_1.at(0).next).to_not be_nil
-    
-    # Pruebas to_s
-    # puts @comida_1
-    # puts 
-    # puts
-    # puts @nodo_1.value
-    # puts @menu_1.at(0).value
   end
   
   
@@ -69,9 +64,20 @@ end
 describe "List" do
   
   it "Se extrae el primer elemento de la lista" do
-    
+    @menu_3.insert(@nodo_1)
+    @menu_3.insert(@nodo_2)
+    expect(@menu_3.extract_first).to eq(@nodo_1)
+  end
+  
+  it "Se puede insertar un elemento" do
+    expect(@menu_4.get_num_nodos).to eq(0)
+    @menu_4.insert(@nodo_1)
+    expect(@menu_4.get_num_nodos).to eq(1)
   end
 
+  it "Se pueden insertar varios elementos" do
+    # Falta..
+  end
 end
 
 end

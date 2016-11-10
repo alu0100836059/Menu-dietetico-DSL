@@ -17,15 +17,16 @@ module MenuDietetico
      end
      
      
-     def insert(value)
+     # Esperamos val como un nodo
+     def insert(nuevo_nodo)
         if @head.value != nil
             aux = @head
             while aux.next != nil
                 aux = aux.next
             end
-            aux.next = value
+            aux.next = nuevo_nodo
         else
-            @head = value
+            @head = nuevo_nodo
         end
         @num_nodos += 1
     end
@@ -52,10 +53,12 @@ module MenuDietetico
             end
             aux_2 = aux.next
             aux.next = nil
+            @num_nodos -= 1
             return aux_2
         end
     end
     
+    # Método de acceso a un elemento dependiendo del índice
     def at(indice)
         cont = 0
         aux = @head
