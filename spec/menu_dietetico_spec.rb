@@ -52,7 +52,7 @@ describe MenuDietetico do
                      "- Almendras laminadas, (10 unidades) 2 c/soperas, 10 g\n"+
                      "V.C.T. | %\t288.0 kcal | 17% - 21% - 62%"
     
-  end
+  end # Final de la inicialización :before all
   
   
 describe "Node" do

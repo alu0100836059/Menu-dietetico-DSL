@@ -24,7 +24,7 @@ module MenuDietetico
      def insert(*val)
          
          val.each do |nuevo_nodo|
-        puts "Justo en el Principio, @head.value = #{@head.value}"
+        
         if @head.value != nil
             aux = @head
             while aux.next != nil
