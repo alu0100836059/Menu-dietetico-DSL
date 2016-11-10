@@ -78,6 +78,10 @@ describe "List" do
   it "Se pueden insertar varios elementos" do
     # Falta..
   end
+  
+  it "Debe existir una Lista con su cabeza" do
+    expect(@menu_4.get_cabeza).to_not be_nil
+  end
 end
 
 end

@@ -16,6 +16,9 @@ module MenuDietetico
          @num_nodos
      end
      
+     def get_cabeza
+         @head
+     end
      
      # Esperamos val como un nodo
      def insert(nuevo_nodo)
