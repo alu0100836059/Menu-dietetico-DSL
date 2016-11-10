@@ -15,9 +15,9 @@ class Menu_comida
 	end
 	
 	     
-     def exist?
-        self.is_nil? 
-     end
+     #def exist?
+     #   self.is_not_nil? 
+     #end
 	
 	def get_platos
 	@conjunto_platos = ""
