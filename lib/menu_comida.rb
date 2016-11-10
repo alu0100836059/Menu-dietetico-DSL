@@ -14,6 +14,11 @@ class Menu_comida
 	@p_hidratos = p_hidratos
 	end
 	
+	     
+     def exist?
+        self.is_nil? 
+     end
+	
 	def get_platos
 	@conjunto_platos = ""
 	@platos.each do |p|

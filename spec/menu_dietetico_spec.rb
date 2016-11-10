@@ -63,7 +63,7 @@ describe "Node" do
     expect(@menu_1.get_num_nodos).to eq 1
     
     # Revisar la documentación de to exist y como pasar la prueba
-    #expect(@menu_1.at(0)).to exist
+    # expect(@menu_1.at(0)).to exist
   end
   
   it "El nodo posee su siguiente" do
@@ -93,10 +93,6 @@ describe "List" do
     expect(@menu_4.get_num_nodos).to eq(1)
   end
 
-
-####
-# describe "Lista" do
-####
 
   it "Se pueden insertar varios elementos" do
     expect(@menu_5.get_cabeza.value).to be_nil
