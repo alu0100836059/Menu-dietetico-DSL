@@ -10,6 +10,7 @@ describe MenuDietetico do
     @menu_2 = MenuDietetico::Menu_dietetico.new
     @menu_3 = MenuDietetico::Menu_dietetico.new
     @menu_4 = MenuDietetico::Menu_dietetico.new
+    @menu_5 = MenuDietetico::Menu_dietetico.new
     
     # Comidas del día
     @comida_1 = Menu_comida.new("DESAYUNO", "15%", ["Leche desnatada", "Cacao instantáneo",
@@ -20,12 +21,29 @@ describe MenuDietetico do
     @comida_2 = Menu_comida.new("MEDIA MAÑANA","10%",["Cerezas",
                 "Galletas bifidus con sésamo"], ["10-12 unidades medianas",
                 "4 unidades"], [12,40], 255.5, 7, 24, 69)
+    @comida_3 = Menu_comida.new("ALMUERZO", "30 - 35%", ["Macarrones con salsa"+
+                " de tomate y queso parmesano", "Escalope de ternera",
+                "Ensalada básica con zanahoria rallada", "Mandarina",
+                "Pan de trigo integral"], ["1 1/2 cucharón", "1 bistec mediano",
+                "", "1 grande", "1 rodaja"], ["200 g", "100 g", 
+                "guarnición de 120 g", "180 g", "20 g"], 785.9, 19, 34, 47)
+    @comida_4 = Menu_comida.new("MERIENDA", "15%", ["Galletas de leche con chocolate"+
+                " y yogur", "Flan de vainilla sin huevo"], ["4 unidades", "1 unidad"],
+                ["46 g", "110 g"], 313.6, 10, 30, 60)
+    @comida_5 = Menu_comida.new("CENA", "25 - 30%", ["Crema de bubango", 
+                "Tortilla capesina con espinacas", "Tomate en dados con atún",
+                "Piña natural o en su jugo picada", "Pan de trigo integral"],
+                ["2 cucharones", "1 cuña grande", "5 a 6 c/soperas",
+                "5 c/soperas", "1 rodaja"], ["200 g", "150 g", "150 g", "120 g",
+                "20 g"], 561.6, 19, 40, 41)
     
     
     # Nodos del Struct creado en el nuevo archivo
     @nodo_1 = MenuDietetico::Node.new(@comida_1, nil)
     @nodo_2 = MenuDietetico::Node.new(@comida_2, nil)
-    
+    @nodo_3 = MenuDietetico::Node.new(@comida_3, nil)
+    @nodo_4 = MenuDietetico::Node.new(@comida_4, nil)
+    @nodo_5 = MenuDietetico::Node.new(@comida_5, nil)
     
     # variables para las comparaciones
     @menu_desayuno = "DESAYUNO (15%)\n- Leche desnatada, 1 vaso, 200 ml\n"+
@@ -75,8 +93,17 @@ describe "List" do
     expect(@menu_4.get_num_nodos).to eq(1)
   end
 
+
+####
+# describe "Lista" do
+####
+
   it "Se pueden insertar varios elementos" do
-    # Falta..
+    expect(@menu_5.get_cabeza.value).to be_nil
+    expect(@menu_5.get_num_nodos).to eq(0)
+    @menu_5.insert(@nodo_4, @nodo_5)
+    expect(@menu_5.get_num_nodos).to eq(2)
+
   end
   
   it "Debe existir una Lista con su cabeza" do

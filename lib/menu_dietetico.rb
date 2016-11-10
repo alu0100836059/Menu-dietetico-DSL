@@ -20,8 +20,11 @@ module MenuDietetico
          @head
      end
      
-     # Esperamos val como un nodo
-     def insert(nuevo_nodo)
+     # Esperamos val como un numero variable de nodos
+     def insert(*val)
+         
+         val.each do |nuevo_nodo|
+        puts "Justo en el Principio, @head.value = #{@head.value}"
         if @head.value != nil
             aux = @head
             while aux.next != nil
@@ -32,6 +35,7 @@ module MenuDietetico
             @head = nuevo_nodo
         end
         @num_nodos += 1
+      end
     end
     
     def extract_first
