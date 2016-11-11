@@ -1,36 +1,35 @@
 require "spec_helper"
-require "menu_dietetico"
-require "menu_comida"
 
-describe MenuDietetico do
+
+describe Lista do
   before :all do
     
-    # Elemento/s de la nueva clase Menu_dietetico
-    @menu_1 = MenuDietetico::Menu_dietetico.new
-    @menu_2 = MenuDietetico::Menu_dietetico.new
-    @menu_3 = MenuDietetico::Menu_dietetico.new
-    @menu_4 = MenuDietetico::Menu_dietetico.new
-    @menu_5 = MenuDietetico::Menu_dietetico.new
+    # Elemento/s de la nueva clase Lista_doble
+    @menu_1 = Lista::Lista_doble.new
+    @menu_2 = Lista::Lista_doble.new
+    @menu_3 = Lista::Lista_doble.new
+    @menu_4 = Lista::Lista_doble.new
+    @menu_5 = Lista::Lista_doble.new
     
     # Comidas del día
-    @comida_1 = Menu_comida.new("DESAYUNO", "15%", ["Leche desnatada", "Cacao instantáneo",
+    @comida_1 = Menu.new("DESAYUNO", "15%", ["Leche desnatada", "Cacao instantáneo",
                 "Cereales de desayuno en hojuelas", "Almendras laminadas"],
                 ["1 vaso", "1 c/sopera", "1 bol pequeño", 
                 "(10 unidades) 2 c/soperas"], ["200 ml", "10 g", "40 g", "10 g"],
                 288.0, 17, 21, 62)
-    @comida_2 = Menu_comida.new("MEDIA MAÑANA","10%",["Cerezas",
+    @comida_2 = Menu.new("MEDIA MAÑANA","10%",["Cerezas",
                 "Galletas bifidus con sésamo"], ["10-12 unidades medianas",
                 "4 unidades"], [12,40], 255.5, 7, 24, 69)
-    @comida_3 = Menu_comida.new("ALMUERZO", "30 - 35%", ["Macarrones con salsa"+
+    @comida_3 = Menu.new("ALMUERZO", "30 - 35%", ["Macarrones con salsa"+
                 " de tomate y queso parmesano", "Escalope de ternera",
                 "Ensalada básica con zanahoria rallada", "Mandarina",
                 "Pan de trigo integral"], ["1 1/2 cucharón", "1 bistec mediano",
                 "", "1 grande", "1 rodaja"], ["200 g", "100 g", 
                 "guarnición de 120 g", "180 g", "20 g"], 785.9, 19, 34, 47)
-    @comida_4 = Menu_comida.new("MERIENDA", "15%", ["Galletas de leche con chocolate"+
+    @comida_4 = Menu.new("MERIENDA", "15%", ["Galletas de leche con chocolate"+
                 " y yogur", "Flan de vainilla sin huevo"], ["4 unidades", "1 unidad"],
                 ["46 g", "110 g"], 313.6, 10, 30, 60)
-    @comida_5 = Menu_comida.new("CENA", "25 - 30%", ["Crema de bubango", 
+    @comida_5 = Menu.new("CENA", "25 - 30%", ["Crema de bubango", 
                 "Tortilla capesina con espinacas", "Tomate en dados con atún",
                 "Piña natural o en su jugo picada", "Pan de trigo integral"],
                 ["2 cucharones", "1 cuña grande", "5 a 6 c/soperas",
@@ -39,11 +38,11 @@ describe MenuDietetico do
     
     
     # Nodos del Struct creado en el nuevo archivo
-    @nodo_1 = MenuDietetico::Node.new(@comida_1, nil)
-    @nodo_2 = MenuDietetico::Node.new(@comida_2, nil)
-    @nodo_3 = MenuDietetico::Node.new(@comida_3, nil)
-    @nodo_4 = MenuDietetico::Node.new(@comida_4, nil)
-    @nodo_5 = MenuDietetico::Node.new(@comida_5, nil)
+    @nodo_1 = Lista::Node.new(@comida_1, nil)
+    @nodo_2 = Lista::Node.new(@comida_2, nil)
+    @nodo_3 = Lista::Node.new(@comida_3, nil)
+    @nodo_4 = Lista::Node.new(@comida_4, nil)
+    @nodo_5 = Lista::Node.new(@comida_5, nil)
     
     # variables para las comparaciones
     @menu_desayuno = "DESAYUNO (15%)\n- Leche desnatada, 1 vaso, 200 ml\n"+

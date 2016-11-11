@@ -1,9 +1,9 @@
 require "menu_dietetico/version"
 
-module MenuDietetico
+module Lista
   Node = Struct.new(:value, :next)
   
-  class Menu_dietetico
+  class Lista_doble
      
      attr_accessor :head, :num_nodos
      

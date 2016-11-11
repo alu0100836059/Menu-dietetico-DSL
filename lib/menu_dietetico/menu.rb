@@ -1,5 +1,5 @@
 # encoding: UTF-8
-class Menu_comida
+class Menu
 	attr_accessor :title, :porcentaje, :platos, :porcion, :gramos, :vct, :p_proteinas, :p_grasas, :p_hidratos 
 	
 	def initialize(title, porcentaje,platos,porcion,gramos,vct,p_proteinas,p_grasas,p_hidratos)
