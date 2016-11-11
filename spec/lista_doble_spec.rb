@@ -104,6 +104,11 @@ describe "List" do
   it "Debe existir una Lista con su cabeza" do
     expect(@menu_4.get_cabeza).to_not be_nil
   end
+  
+  it "Se crea la lista vacía" do
+    expect(@menu_2.get_cabeza).to be_nil
+    expect(@menu_2.get_num_nodos).to eq(0)
+  end
 end
 
 end
