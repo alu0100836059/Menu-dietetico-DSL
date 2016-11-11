@@ -38,11 +38,11 @@ describe Lista do
     
     
     # Nodos del Struct creado en el nuevo archivo
-    @nodo_1 = Lista::Node.new(@comida_1, nil)
-    @nodo_2 = Lista::Node.new(@comida_2, nil)
-    @nodo_3 = Lista::Node.new(@comida_3, nil)
-    @nodo_4 = Lista::Node.new(@comida_4, nil)
-    @nodo_5 = Lista::Node.new(@comida_5, nil)
+    @nodo_1 = Lista::Node.new(nil, @comida_1, nil)
+    @nodo_2 = Lista::Node.new(nil, @comida_2, nil)
+    @nodo_3 = Lista::Node.new(nil, @comida_3, nil)
+    @nodo_4 = Lista::Node.new(nil, @comida_4, nil)
+    @nodo_5 = Lista::Node.new(nil, @comida_5, nil)
     
     # variables para las comparaciones
     @menu_desayuno = "DESAYUNO (15%)\n- Leche desnatada, 1 vaso, 200 ml\n"+
@@ -94,7 +94,7 @@ describe "List" do
 
 
   it "Se pueden insertar varios elementos" do
-    expect(@menu_5.get_cabeza.value).to be_nil
+    expect(@menu_5.get_cabeza).to be_nil
     expect(@menu_5.get_num_nodos).to eq(0)
     @menu_5.insert(@nodo_4, @nodo_5)
     expect(@menu_5.get_num_nodos).to eq(2)

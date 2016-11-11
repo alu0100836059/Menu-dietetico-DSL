@@ -1,14 +1,15 @@
 require "menu_dietetico/version"
 
 module Lista
-  Node = Struct.new(:value, :next)
+  Node = Struct.new(:previous, :value, :next)
   
   class Lista_doble
      
      attr_accessor :head, :num_nodos
      
      def initialize
-         @head = Node.new(nil,nil)
+         #@head = Node.new(nil,nil)
+         @head = nil
          @num_nodos = 0
      end
      
@@ -25,7 +26,7 @@ module Lista
          
          val.each do |nuevo_nodo|
         
-        if @head.value != nil
+        if @head != nil
             aux = @head
             while aux.next != nil
                 aux = aux.next
