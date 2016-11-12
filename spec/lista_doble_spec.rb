@@ -78,14 +78,19 @@ end
 describe "List" do
   
   it "Se extrae el primer elemento de la lista" do
-    @menu_3.insert_beginnig(@nodo_1)
+    @menu_3.insert_beginning(@nodo_1)
     @menu_3.insert_final(@nodo_2)
-    expect(@menu_3.extract_first).to eq(@nodo_1)
+    # expect(@menu_3.extract_first).to eq(@nodo_1)
+    puts "\n\n ########################################### \n\n"
+    puts "Primer elemento:\n"
+    @menu_3.at(0).value.to_s
+    puts "\n\nSegundo elemento\n"
+    @menu_3.at(1).value.to_s
   end
   
   it "Se puede insertar un elemento" do
     expect(@menu_4.get_num_nodos).to eq(0)
-    @menu_4.insert(@nodo_1)
+    @menu_4.insert_beginning(@nodo_1)
     expect(@menu_4.get_num_nodos).to eq(1)
   end
 
@@ -93,7 +98,7 @@ describe "List" do
   it "Se pueden insertar varios elementos" do
     expect(@menu_5.get_cabeza).to be_nil
     expect(@menu_5.get_num_nodos).to eq(0)
-    @menu_5.insert(@nodo_4, @nodo_5)
+    @menu_5.insert_beginning(@nodo_4, @nodo_5)
     expect(@menu_5.get_num_nodos).to eq(2)
 
   end
