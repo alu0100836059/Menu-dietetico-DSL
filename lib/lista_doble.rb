@@ -43,6 +43,8 @@ module Lista
     #   end
     # end
     
+    #################################################
+    
      # Esperamos val como un numero variable de nodos
      def insert_final(*val)
          

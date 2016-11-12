@@ -60,13 +60,10 @@ describe "Node" do
     expect(@menu_1.get_num_nodos).to eq 0
     @menu_1.insert_beginning(@nodo_1)
     expect(@menu_1.get_num_nodos).to eq 1
-    
-    # Revisar la documentación de to exist y como pasar la prueba
-    # expect(@menu_1.at(0)).to exist
   end
   
   it "El nodo posee su siguiente" do
-    @menu_1.insert_final(@nodo_2)
+    @menu_1.insert_final(@nodo_1, @nodo_3)
     expect(@menu_1.at(0).next).to_not be_nil
   end
   
