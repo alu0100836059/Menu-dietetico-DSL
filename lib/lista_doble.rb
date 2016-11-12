@@ -8,8 +8,8 @@ module Lista
      attr_accessor :head, :num_nodos
      
      def initialize
-         #@head = Node.new(nil,nil)
          @head = nil
+         @tail = nil
          @num_nodos = 0
      end
      
@@ -21,23 +21,60 @@ module Lista
          @head
      end
      
+     def get_cola
+         @tail
+     end
+     
+    #  # Esperamos val como un numero variable de nodos
+    #  def insert(*val)
+         
+    #      val.each do |nuevo_nodo|
+        
+    #     if @head != nil
+    #         aux = @head
+    #         while aux.next != nil
+    #             aux = aux.next
+    #         end
+    #         aux.next = nuevo_nodo
+    #     else
+    #         @head = nuevo_nodo
+    #     end
+    #     @num_nodos += 1
+    #   end
+    # end
+    
      # Esperamos val como un numero variable de nodos
-     def insert(*val)
+     def insert_final(*val)
          
          val.each do |nuevo_nodo|
         
-        if @head != nil
-            aux = @head
-            while aux.next != nil
-                aux = aux.next
-            end
-            aux.next = nuevo_nodo
+        if @tail != nil
+            @tail.next = nuevo_nodo
+            nuevo_nodo.previous = @tail
+            @tail = nuevo_nodo
         else
-            @head = nuevo_nodo
+            @head = @tail = nuevo_nodo
         end
         @num_nodos += 1
-      end
+        end
     end
+    
+    # Esperamos val como un numero variable de nodos
+    def insert_beginning(*val)
+        
+        val.each do |nuevo_nodo|
+            
+            if @head != nil
+                @head.previous = nuevo_nodo
+                nuevo_nodo.next = @head
+                @head = nuevo_nodo
+            else
+                @head = nuevo_nodo
+            end
+            @num_nodos += 1
+        end
+    end 
+    ###################################################
     
     def extract_first
        

@@ -58,7 +58,7 @@ describe "Node" do
   
   it "Existe un nodo en la lista" do
     expect(@menu_1.get_num_nodos).to eq 0
-    @menu_1.insert(@nodo_1)
+    @menu_1.insert_beginning(@nodo_1)
     expect(@menu_1.get_num_nodos).to eq 1
     
     # Revisar la documentación de to exist y como pasar la prueba
@@ -66,7 +66,7 @@ describe "Node" do
   end
   
   it "El nodo posee su siguiente" do
-    @menu_1.insert(@nodo_2)
+    @menu_1.insert_final(@nodo_2)
     expect(@menu_1.at(0).next).to_not be_nil
   end
   
@@ -81,8 +81,8 @@ end
 describe "List" do
   
   it "Se extrae el primer elemento de la lista" do
-    @menu_3.insert(@nodo_1)
-    @menu_3.insert(@nodo_2)
+    @menu_3.insert_beginnig(@nodo_1)
+    @menu_3.insert_final(@nodo_2)
     expect(@menu_3.extract_first).to eq(@nodo_1)
   end
   
