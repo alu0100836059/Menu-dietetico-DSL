@@ -8,8 +8,7 @@ module Lista
      attr_accessor :head, :num_nodos
      
      def initialize
-         @head = nil
-         @tail = nil
+         @head = @tail = nil
          @num_nodos = 0
      end
      
@@ -74,6 +73,7 @@ module Lista
                 @head = nuevo_nodo
             end
             @num_nodos += 1
+            
         end
     end 
     ###################################################

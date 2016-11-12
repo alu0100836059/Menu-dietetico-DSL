@@ -78,8 +78,8 @@ end
 describe "List" do
   
   it "Se extrae el primer elemento de la lista" do
-    @menu_3.insert_beginning(@nodo_1)
-    @menu_3.insert_final(@nodo_2)
+    @menu_3.insert_beginning(@nodo_1, @nodo_2)
+    puts @menu_3.get_num_nodos
     # expect(@menu_3.extract_first).to eq(@nodo_1)
     puts "\n\n ########################################### \n\n"
     puts "Primer elemento:\n"
