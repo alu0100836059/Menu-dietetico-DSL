@@ -19,7 +19,7 @@ describe Lista do
                 288.0, 17, 21, 62)
     @comida_2 = Menu.new("MEDIA MAÑANA","10%",["Cerezas",
                 "Galletas bifidus con sésamo"], ["10-12 unidades medianas",
-                "4 unidades"], [12,40], 255.5, 7, 24, 69)
+                "4 unidades"], ["120 g","40 g"], 255.5, 7, 24, 69)
     @comida_3 = Menu.new("ALMUERZO", "30 - 35%", ["Macarrones con salsa"+
                 " de tomate y queso parmesano", "Escalope de ternera",
                 "Ensalada básica con zanahoria rallada", "Mandarina",
@@ -78,14 +78,8 @@ end
 describe "List" do
   
   it "Se extrae el primer elemento de la lista" do
-    @menu_3.insert_beginning(@nodo_1, @nodo_2)
-    puts @menu_3.get_num_nodos
-    # expect(@menu_3.extract_first).to eq(@nodo_1)
-    puts "\n\n ########################################### \n\n"
-    puts "Primer elemento:\n"
-    @menu_3.at(0).value.to_s
-    puts "\n\nSegundo elemento\n"
-    @menu_3.at(1).value.to_s
+    primer_nodo = @menu_1.at(0).value
+    expect(@menu_1.extract_first.value).to eq(primer_nodo)
   end
   
   it "Se puede insertar un elemento" do
@@ -100,7 +94,6 @@ describe "List" do
     expect(@menu_5.get_num_nodos).to eq(0)
     @menu_5.insert_beginning(@nodo_4, @nodo_5)
     expect(@menu_5.get_num_nodos).to eq(2)
-
   end
   
   it "Debe existir una Lista con su cabeza" do
@@ -111,6 +104,7 @@ describe "List" do
     expect(@menu_2.get_cabeza).to be_nil
     expect(@menu_2.get_num_nodos).to eq(0)
   end
+  
 end
 
 end

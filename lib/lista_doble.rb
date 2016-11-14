@@ -124,6 +124,7 @@ module Lista
         else
             while aux.next != nil
                 puts aux.value
+                puts 
                 aux = aux.next
             end
         puts aux.value
