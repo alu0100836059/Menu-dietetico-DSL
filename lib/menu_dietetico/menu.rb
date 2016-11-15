@@ -74,3 +74,21 @@ class Menu
 	"% - #{@p_hidratos}%"
 	end
 end
+
+class Menu_por_alimentos < Menu
+	attr_accessor :grupo_alimentos
+	
+	def initialize(title, porcentaje,platos,porcion,gramos,vct,p_proteinas,p_grasas,p_hidratos,grupo_alimentos)
+		super(title, porcentaje,platos,porcion,gramos,vct,p_proteinas,p_grasas,p_hidratos)
+		@grupo_alimentos = grupo_alimentos
+	end
+end
+
+class Menu_por_edad < Menu
+	attr_accessor :edad
+	
+	def initialize(title, porcentaje,platos,porcion,gramos,vct,p_proteinas,p_grasas,p_hidratos,edad)
+		super(title, porcentaje,platos,porcion,gramos,vct,p_proteinas,p_grasas,p_hidratos)
+		@edad = edad
+	end
+end

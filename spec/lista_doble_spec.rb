@@ -36,6 +36,16 @@ describe Lista do
                 "5 c/soperas", "1 rodaja"], ["200 g", "150 g", "150 g", "120 g",
                 "20 g"], 561.6, 19, 40, 41)
     
+    @cmd_alim1 = Menu_por_alimentos.new("DESAYUNO", "15%", ["Leche desnatada", "Cacao instantáneo",
+                "Cereales de desayuno en hojuelas", "Almendras laminadas"],
+                ["1 vaso", "1 c/sopera", "1 bol pequeño", 
+                "(10 unidades) 2 c/soperas"], ["200 ml", "10 g", "40 g", "10 g"],
+                288.0, 17, 21, 62, ["leche, huevos, pescado, carne y frutos secos",
+                "cereales, legumbres y féculas"])
+                
+    @cmd_edad1 = Menu_por_edad.new("MERIENDA", "15%", ["Galletas de leche con chocolate"+
+                " y yogur", "Flan de vainilla sin huevo"], ["4 unidades", "1 unidad"],
+                ["46 g", "110 g"], 313.6, 10, 30, 60, ["4 a 8 años", "9 a 13 años"])
     
     # Nodos del Struct creado en el nuevo archivo
     @nodo_1 = Lista::Node.new(nil, @comida_1, nil)
@@ -43,6 +53,10 @@ describe Lista do
     @nodo_3 = Lista::Node.new(nil, @comida_3, nil)
     @nodo_4 = Lista::Node.new(nil, @comida_4, nil)
     @nodo_5 = Lista::Node.new(nil, @comida_5, nil)
+    
+    # Para las nuevas clases heredadas
+    @nodo_a1 = Lista::Node.new(nil, @cmd_alim1, nil)
+    @nodo_e1 = Lista::Node.new(nil, @cmd_edad1, nil)
     
     # variables para las comparaciones
     @menu_desayuno = "DESAYUNO (15%)\n- Leche desnatada, 1 vaso, 200 ml\n"+
@@ -73,9 +87,9 @@ describe "Node" do
     expect(@nodo_1_lista).to eq(@menu_desayuno)
   end
   
-end
+end 
 
-describe "List" do
+describe "Lista_doble" do
   
   it "Se extrae el primer elemento de la lista" do
     primer_nodo = @menu_1.at(0).value
@@ -104,6 +118,24 @@ describe "List" do
     expect(@menu_2.get_cabeza).to be_nil
     expect(@menu_2.get_num_nodos).to eq(0)
   end
+  
+end #Lista_doble
+
+describe "Inheritance" do
+  
+  it "Menu_por_alimentos hereda de la clase Menu" do
+    @menu_1.reset
+   @menu_1.insert_beginning(@nodo_a1)
+   expect(@menu_1.at(0).value).to be_a_kind_of(Menu)
+  end
+  
+  it "Menu_por_edad hereda de la clase Menu" do
+    @menu_1.reset
+   @menu_1.insert_beginning(@nodo_e1)
+   expect(@menu_1.at(0).value).to be_a_kind_of(Menu)
+  end
+  
+  
   
 end
 

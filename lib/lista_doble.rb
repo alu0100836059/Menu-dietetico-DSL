@@ -118,6 +118,10 @@ module Lista
         return aux
     end
     
+    def reset
+       @head = @tail = nil
+       @num_nodos = 0
+    end
     
     def to_s
         aux = @head
@@ -133,13 +137,5 @@ module Lista
         end
     end
  end # end Lista_doble class
- 
- class Lista_doble_alimentos < Lista_doble
-         
- end # end Lista_doble_alimentos
-  
- class Lista_doble_edad  < Lista_doble
-     
- end # end Lista_doble_edad
   
 end #end module
