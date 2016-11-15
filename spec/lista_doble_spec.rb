@@ -63,7 +63,7 @@ describe "Node" do
   end
   
   it "El nodo posee su siguiente" do
-    @menu_1.insert_final(@nodo_1, @nodo_3)
+    @menu_1.insert_beginning(@nodo_3, @nodo_1)
     expect(@menu_1.at(0).next).to_not be_nil
   end
   

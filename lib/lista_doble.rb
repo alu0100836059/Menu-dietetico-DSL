@@ -44,21 +44,22 @@ module Lista
     
     #################################################
     
-     # Esperamos val como un numero variable de nodos
-     def insert_final(*val)
+    #  # :no_required
+    #  # Esperamos val como un numero variable de nodos
+    #  def insert_final(*val)
          
-         val.each do |nuevo_nodo|
+    #      val.each do |nuevo_nodo|
         
-        if @tail != nil
-            @tail.next = nuevo_nodo
-            nuevo_nodo.previous = @tail
-            @tail = nuevo_nodo
-        else
-            @head = @tail = nuevo_nodo
-        end
-        @num_nodos += 1
-        end
-    end
+    #     if @tail != nil
+    #         @tail.next = nuevo_nodo
+    #         nuevo_nodo.previous = @tail
+    #         @tail = nuevo_nodo
+    #     else
+    #         @head = @tail = nuevo_nodo
+    #     end
+    #     @num_nodos += 1
+    #     end
+    # end
     
     # Esperamos val como un numero variable de nodos
     def insert_beginning(*val)
@@ -90,6 +91,7 @@ module Lista
       @num_nodos -= 1
     end
     
+    # :no_required
     # def extract_last
         
     #     if @head.value == nil
@@ -130,7 +132,14 @@ module Lista
         puts aux.value
         end
     end
- end #end class
+ end # end Lista_doble class
+ 
+ class Lista_doble_alimentos < Lista_doble
+         
+ end # end Lista_doble_alimentos
   
+ class Lista_doble_edad  < Lista_doble
+     
+ end # end Lista_doble_edad
   
 end #end module
