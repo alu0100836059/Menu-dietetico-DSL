@@ -65,6 +65,12 @@ describe Lista do
                      "- Almendras laminadas, (10 unidades) 2 c/soperas, 10 g\n"+
                      "V.C.T. | %\t288.0 kcal | 17% - 21% - 62%"
     
+    # @menu_desayuno = "DESAYUNO (15%)\n- Leche desnatada, 1 vaso, 200 ml\n"+
+    #                 "- Cacao instantáneo, 1 c/sopera, 10 g\n"+
+    #                 "- Cereales de desayuno en hojuelas, 1 bol pequeño, 40 g\n"+
+    #                 "- Almendras laminadas, (10 unidades) 2 c/soperas, 10 g\n"+
+    #                 "V.C.T. | %\t288.0 kcal | 17% - 21% - 62%"
+    
   end # Final de la inicialización :before all
   
   
@@ -128,6 +134,11 @@ describe "Inheritance" do
    @menu_1.insert_beginning(@nodo_a1)
    expect(@menu_1.at(0).value).to be_a_kind_of(Menu)
   end
+  
+  # it "Menu_por_alimentos es una instancia de la clase Menu" do
+  #   @comprobacion_a1 = 
+  #   expect(@menu_1.at(0).to_s).to eq(@comprobacion_a1)
+  # end
   
   it "Menu_por_edad hereda de la clase Menu" do
     @menu_1.reset
