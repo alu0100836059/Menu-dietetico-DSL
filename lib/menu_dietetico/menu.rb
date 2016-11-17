@@ -13,11 +13,7 @@ class Menu
 	@p_grasas = p_grasas
 	@p_hidratos = p_hidratos
 	end
-	
-	     
-     #def exist?
-     #   self.is_not_nil? 
-     #end
+
 	
 	def get_platos
 	@conjunto_platos = ""
@@ -73,4 +69,34 @@ class Menu
 	"V.C.T. | %\t#{@vct} kcal | #{@p_proteinas}% - #{@p_grasas}"+
 	"% - #{@p_hidratos}%"
 	end
+end
+
+
+class Menu_por_alimentos < Menu
+
+	attr_accessor :grupo_alimentos
+	
+	def initialize(title, porcentaje,platos,porcion,gramos,vct,p_proteinas,p_grasas,p_hidratos,grupo_alimentos)
+		super(title, porcentaje,platos,porcion,gramos,vct,p_proteinas,p_grasas,p_hidratos)
+		@grupo_alimentos = grupo_alimentos
+	end
+	
+	def to_s
+	    "Menús pertenecientes a las categorías de alimentos: #{@edad}:\n"+super.to_s
+	end
+end
+
+
+class Menu_por_edad < Menu
+	attr_accessor :edad
+	
+	def initialize(title, porcentaje,platos,porcion,gramos,vct,p_proteinas,p_grasas,p_hidratos,edad)
+		super(title, porcentaje,platos,porcion,gramos,vct,p_proteinas,p_grasas,p_hidratos)
+		@edad = edad
+	end
+	
+	def to_s
+	    "Menú para edades de #{@edad}:\n"+super.to_s
+	end
+
 end

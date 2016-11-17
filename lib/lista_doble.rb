@@ -24,24 +24,7 @@ module Lista
          @tail
      end
      
-    #  # Esperamos val como un numero variable de nodos
-    #  def insert(*val)
-         
-    #      val.each do |nuevo_nodo|
-        
-    #     if @head != nil
-    #         aux = @head
-    #         while aux.next != nil
-    #             aux = aux.next
-    #         end
-    #         aux.next = nuevo_nodo
-    #     else
-    #         @head = nuevo_nodo
-    #     end
-    #     @num_nodos += 1
-    #   end
-    # end
-    
+
     #################################################
     
     #  # :no_required
