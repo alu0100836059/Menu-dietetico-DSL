@@ -7,6 +7,9 @@ module Lista
      
      attr_accessor :head, :num_nodos
      
+     # Módulo Enumerable
+     include Enumerable
+     
      def initialize
          @head = @tail = nil
          @num_nodos = 0
@@ -105,6 +108,22 @@ module Lista
        @head = @tail = nil
        @num_nodos = 0
     end
+    
+    # Para :Enumerable
+	def each
+	    
+	    aux = @head
+	    # yield sobre el primer elemento
+	    yield aux
+        while aux.next != nil
+        #yield interno
+            aux = aux.next
+            yield aux
+        end
+        # yield sobre el último elemento
+        yield aux
+	end
+    
     
     def to_s
         aux = @head

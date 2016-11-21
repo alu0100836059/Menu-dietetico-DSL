@@ -2,8 +2,7 @@
 class Menu
 	attr_accessor :title, :porcentaje, :platos, :porcion, :gramos, :vct, :p_proteinas, :p_grasas, :p_hidratos 
 	
-	# Modulos enumerable y comparable
-	include Enumerable
+	# Modulo comparable
 	include Comparable
 	
 	def initialize(title, porcentaje,platos,porcion,gramos,vct,p_proteinas,p_grasas,p_hidratos)
@@ -77,11 +76,6 @@ class Menu
 	# Para :Comparable
 	def <=> otro_menu
 		self.vct <=> otro_menu.vct	
-	end
-	
-	# Para :Enumerable
-	def each
-			@title.each{|titulo| yield titulo}
 	end
 	
 end
