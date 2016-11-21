@@ -40,12 +40,11 @@ describe Lista do
                 "Cereales de desayuno en hojuelas", "Almendras laminadas"],
                 ["1 vaso", "1 c/sopera", "1 bol pequeño", 
                 "(10 unidades) 2 c/soperas"], ["200 ml", "10 g", "40 g", "10 g"],
-                288.0, 17, 21, 62, ["leche, huevos, pescado, carne y frutos secos",
-                "cereales, legumbres y féculas"])
+                288.0, 17, 21, 62, "leche, huevos, pescado, carne y frutos secos")
                 
     @cmd_edad1 = Menu_por_edad.new("MERIENDA", "15%", ["Galletas de leche con chocolate"+
                 " y yogur", "Flan de vainilla sin huevo"], ["4 unidades", "1 unidad"],
-                ["46 g", "110 g"], 313.6, 10, 30, 60, ["4 a 8 años", "9 a 13 años"])
+                ["46 g", "110 g"], 313.6, 10, 30, 60, "4 a 8 años")
     
     # Nodos del Struct creado en el nuevo archivo
     @nodo_1 = Lista::Node.new(nil, @comida_1, nil)
@@ -65,11 +64,18 @@ describe Lista do
                      "- Almendras laminadas, (10 unidades) 2 c/soperas, 10 g\n"+
                      "V.C.T. | %\t288.0 kcal | 17% - 21% - 62%"
     
-    # @menu_desayuno = "DESAYUNO (15%)\n- Leche desnatada, 1 vaso, 200 ml\n"+
-    #                 "- Cacao instantáneo, 1 c/sopera, 10 g\n"+
-    #                 "- Cereales de desayuno en hojuelas, 1 bol pequeño, 40 g\n"+
-    #                 "- Almendras laminadas, (10 unidades) 2 c/soperas, 10 g\n"+
-    #                 "V.C.T. | %\t288.0 kcal | 17% - 21% - 62%"
+    @comprobacion_a1 = "Menús pertenecientes a las categorías de alimentos: "+
+                    "leche, huevos, pescado, carne y frutos secos:\n"+
+                    "DESAYUNO (15%)\n- Leche desnatada, 1 vaso, 200 ml\n"+
+                    "- Cacao instantáneo, 1 c/sopera, 10 g\n"+
+                    "- Cereales de desayuno en hojuelas, 1 bol pequeño, 40 g\n"+
+                    "- Almendras laminadas, (10 unidades) 2 c/soperas, 10 g\n"+
+                    "V.C.T. | %\t288.0 kcal | 17% - 21% - 62%"
+    
+    @comprobacion_e1 = "Menú para edades de 4 a 8 años:\n"+
+                    "MERIENDA (15%)\n- Galletas de leche con chocolate y yogur, 4 unidades, 46 g\n"+
+                    "- Flan de vainilla sin huevo, 1 unidad, 110 g\n"+
+                    "V.C.T. | %\t313.6 kcal | 10% - 30% - 60%"
     
   end # Final de la inicialización :before all
   
@@ -135,10 +141,12 @@ describe "Inheritance" do
    expect(@menu_1.at(0).value).to be_a_kind_of(Menu)
   end
   
-  # it "Menu_por_alimentos es una instancia de la clase Menu" do
-  #   @comprobacion_a1 = 
-  #   expect(@menu_1.at(0).to_s).to eq(@comprobacion_a1)
-  # end
+  
+  it "Se lista adecuadamente el menu segun alimento" do
+    @menu_1.reset
+    @menu_1.insert_beginning(@nodo_a1)
+    expect(@menu_1.at(0).value.to_s).to eq(@comprobacion_a1)
+  end
   
   it "Menu_por_edad hereda de la clase Menu" do
     @menu_1.reset
@@ -146,6 +154,11 @@ describe "Inheritance" do
    expect(@menu_1.at(0).value).to be_a_kind_of(Menu)
   end
   
+    it "Se lista adecuadamente el menu segun el rango de edad" do
+    @menu_1.reset
+    @menu_1.insert_beginning(@nodo_e1)
+    expect(@menu_1.at(0).value.to_s).to eq(@comprobacion_e1)
+  end
   
   
 end

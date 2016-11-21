@@ -2,6 +2,10 @@
 class Menu
 	attr_accessor :title, :porcentaje, :platos, :porcion, :gramos, :vct, :p_proteinas, :p_grasas, :p_hidratos 
 	
+	# Modulos enumerable y comparable
+	include Enumerable
+	include Comparable
+	
 	def initialize(title, porcentaje,platos,porcion,gramos,vct,p_proteinas,p_grasas,p_hidratos)
 	@title=title
 	@porcentaje = porcentaje
@@ -69,6 +73,17 @@ class Menu
 	"V.C.T. | %\t#{@vct} kcal | #{@p_proteinas}% - #{@p_grasas}"+
 	"% - #{@p_hidratos}%"
 	end
+	
+	# Para :Comparable
+	def <=> otro_menu
+		self.vct <=> otro_menu.vct	
+	end
+	
+	# Para :Enumerable
+	def each
+		
+	end
+	
 end
 
 
@@ -82,7 +97,7 @@ class Menu_por_alimentos < Menu
 	end
 	
 	def to_s
-	    "Menús pertenecientes a las categorías de alimentos: #{@edad}:\n"+super.to_s
+	    "Menús pertenecientes a las categorías de alimentos: #{@grupo_alimentos}:\n"+super.to_s
 	end
 end
 
