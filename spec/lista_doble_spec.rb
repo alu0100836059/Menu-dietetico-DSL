@@ -149,7 +149,7 @@ describe "Inheritance" do
   end
   
   it "Menu_por_edad hereda de la clase Menu" do
-    @menu_1.reset
+   @menu_1.reset
    @menu_1.insert_beginning(@nodo_e1)
    expect(@menu_1.at(0).value).to be_a_kind_of(Menu)
   end
@@ -159,8 +159,21 @@ describe "Inheritance" do
     @menu_1.insert_beginning(@nodo_e1)
     expect(@menu_1.at(0).value.to_s).to eq(@comprobacion_e1)
   end
-  
-  
-end
+end # Final Inheritance
 
-end
+describe "Modulo Enumerable" do
+  
+    it "Se recorren todos los elementos de la lista" do
+    @menu_1.reset
+    @menu_1.insert_beginning(@nodo_1, @nodo_2, @nodo_3, @nodo_4)
+    
+    # Prueba para comprobar el correcto movimiento
+    # @menu_1.each{|nodo| nodo.value.to_s}
+    end
+end # Final Enumerable
+
+describe "Modulo Comparable" do
+  
+end # Final Comparable
+
+end # Final describe Lista

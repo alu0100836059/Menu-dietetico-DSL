@@ -112,16 +112,16 @@ module Lista
     # Para :Enumerable
 	def each
 	    
-	    aux = @head
-	    # yield sobre el primer elemento
-	    yield aux
-        while aux.next != nil
-        #yield interno
-            aux = aux.next
-            yield aux
-        end
-        # yield sobre el último elemento
-        yield aux
+	   # aux = @head
+	   # # yield sobre el primer elemento
+	   # yield aux
+    #     while aux.next != nil
+    #     #yield interno
+    #         aux = aux.next
+    #         yield aux
+    #     end
+    #     # yield sobre el último elemento
+    #     yield aux
 	end
     
     
