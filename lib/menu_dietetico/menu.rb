@@ -81,7 +81,7 @@ class Menu
 	
 	# Para :Enumerable
 	def each
-		
+			@title.each{|titulo| yield titulo}
 	end
 	
 end
