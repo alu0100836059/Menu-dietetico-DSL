@@ -165,10 +165,29 @@ describe "Modulo Enumerable" do
   
     it "Se recorren todos los elementos de la lista" do
     @menu_1.reset
-    @menu_1.insert_beginning(@nodo_1, @nodo_2, @nodo_3, @nodo_4)
+    @menu_1.insert_beginning(@nodo_1, @nodo_2)
+    
+    
     
     # Prueba para comprobar el correcto movimiento
-    # @menu_1.each{|nodo| nodo.value.to_s}
+    # puts @menu_1.get_num_nodos
+    # puts "\n Nodo previo: \n"
+    # puts @menu_1.at(0).previous
+    # puts "\ Nodo valor: \n"
+    # puts @menu_1.at(0).value
+    # puts "\n Nodo siguiente: \n"
+    # puts @menu_1.at(0).next
+    # puts "\n Nodo dos previo: \n"
+    # puts @menu_1.at(1).previous
+    # puts "\n Nodo dos valor: \n"
+    # puts @menu_1.at(1).value
+    # puts "\n Nodo dos siguiente: \n"
+    # puts @menu_1.at(1).next
+    
+    
+    
+    # Aquí entra en bucle
+    # @menu_1.map{|nodo| puts nodo}
     end
 end # Final Enumerable
 

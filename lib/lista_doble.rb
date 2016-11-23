@@ -1,6 +1,7 @@
 require "menu_dietetico/version"
 
 module Lista
+    
   Node = Struct.new(:previous, :value, :next)
   
   class Lista_doble
@@ -53,8 +54,9 @@ module Lista
         val.each do |nuevo_nodo|
             
             if @head != nil
-                @head.previous = nuevo_nodo
-                nuevo_nodo.next = @head
+                aux = @head
+                aux.previous = nuevo_nodo
+                nuevo_nodo.next = aux
                 @head = nuevo_nodo
             else
                 @head = nuevo_nodo
@@ -99,7 +101,10 @@ module Lista
         cont = 0
         aux = @head
         while cont < indice do
+            puts "\n\n COUNT: #{cont}"
+            puts "\n\n INDICE: #{indice}\n\n"
             aux = aux.next
+            cont += 1
         end
         return aux
     end
@@ -111,17 +116,11 @@ module Lista
     
     # Para :Enumerable
 	def each
-	    
-	   # aux = @head
-	   # # yield sobre el primer elemento
-	   # yield aux
-    #     while aux.next != nil
-    #     #yield interno
-    #         aux = aux.next
-    #         yield aux
-    #     end
-    #     # yield sobre el último elemento
-    #     yield aux
+	    aux = @head
+        while aux != nil
+            yield aux.value
+            aux = aux.next
+        end
 	end
     
     
