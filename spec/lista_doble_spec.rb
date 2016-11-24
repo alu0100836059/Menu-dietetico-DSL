@@ -10,6 +10,7 @@ describe Lista do
     @menu_3 = Lista::Lista_doble.new
     @menu_4 = Lista::Lista_doble.new
     @menu_5 = Lista::Lista_doble.new
+    @menu_6 = Lista::Lista_doble.new
     
     # Comidas del día
     @comida_1 = Menu.new("DESAYUNO", "15%", ["Leche desnatada", "Cacao instantáneo",
@@ -164,30 +165,30 @@ end # Final Inheritance
 describe "Modulo Enumerable" do
   
     it "Se recorren todos los elementos de la lista" do
-    @menu_1.reset
-    @menu_1.insert_beginning(@nodo_1, @nodo_2)
+    # @menu_6.insert_beginning(@nodo_1, @nodo_2)
+    @menu_6.reset
+    @menu_6.insert_beginning(@nodo_1)
     
-    
-    
+    # @nodo_1 - Desayuno @nodo_2 - Media Mañana 
     # Prueba para comprobar el correcto movimiento
-    # puts @menu_1.get_num_nodos
-    # puts "\n Nodo previo: \n"
-    # puts @menu_1.at(0).previous
-    # puts "\ Nodo valor: \n"
-    # puts @menu_1.at(0).value
-    # puts "\n Nodo siguiente: \n"
-    # puts @menu_1.at(0).next
+    puts @menu_6.get_num_nodos
+    puts "\n Nodo previo: \n"
+    puts @menu_6.at(0).previous
+    puts "\ Nodo valor: \n"
+    puts @menu_6.at(0).value
+    puts "\n Nodo siguiente: \n"
+    puts @menu_6.at(0).next.value
     # puts "\n Nodo dos previo: \n"
-    # puts @menu_1.at(1).previous
+    # puts @menu_6.at(1).previous.value
     # puts "\n Nodo dos valor: \n"
-    # puts @menu_1.at(1).value
+    # puts @menu_6.at(1).value
     # puts "\n Nodo dos siguiente: \n"
-    # puts @menu_1.at(1).next
+    # puts @menu_6.at(1).next
     
     
     
     # Aquí entra en bucle
-    # @menu_1.map{|nodo| puts nodo}
+    #@menu_1.map{|nodo| puts nodo}
     end
 end # Final Enumerable
 

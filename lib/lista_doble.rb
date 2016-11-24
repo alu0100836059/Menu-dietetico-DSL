@@ -54,9 +54,9 @@ module Lista
         val.each do |nuevo_nodo|
             
             if @head != nil
-                aux = @head
-                aux.previous = nuevo_nodo
-                nuevo_nodo.next = aux
+                
+                @head.previous = nuevo_nodo
+                nuevo_nodo.next = @head
                 @head = nuevo_nodo
             else
                 @head = nuevo_nodo
@@ -101,8 +101,6 @@ module Lista
         cont = 0
         aux = @head
         while cont < indice do
-            puts "\n\n COUNT: #{cont}"
-            puts "\n\n INDICE: #{indice}\n\n"
             aux = aux.next
             cont += 1
         end
