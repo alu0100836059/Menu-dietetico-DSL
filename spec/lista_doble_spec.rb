@@ -163,12 +163,31 @@ end # Final Inheritance
 
 describe "Modulo Enumerable" do
   
-    it "Se recorren todos los elementos de la lista mostrandolos OK" do
+    it "Se recorre la lista mostrandola perfectamente" do
       @menu_1.insert_beginning(@nodo_1, @nodo_2)
       @concat_nodo1_2 = @check_nodo_2+@check_nodo_1
       @concat_each = ""
       @menu_1.each{|nodo| @concat_each<<"#{nodo}"}
       expect(@concat_nodo1_2).to eq (@concat_each)
+    end
+    
+    it ".any" do
+      @menu_1.insert_beginning(@nodo_1, @nodo_2)
+      # Si encuentra coincidencia any? devolverá TRUE
+      expect(@menu_1.any? {|nodo| nodo.to_s == "#{@check_nodo_1}"}).to be true
+    end
+    
+    it ".count" do
+      @menu_1.insert_beginning(@nodo_1, @nodo_2, @nodo_3, @nodo_4)
+      expect(@menu_1.count).to eq(4)
+    end
+    
+    it ".cycle" do
+      @menu_1.insert_beginning(@nodo_1, @nodo_2)
+      @concat_nodo1_2_double = @check_nodo_2+@check_nodo_1+@check_nodo_2+@check_nodo_1
+      @concat_cycle = ""
+      @menu_1.cycle(2){|nodo| @concat_cycle<<"#{nodo}"}
+      expect(@concat_cycle).to eq(@concat_nodo1_2_double)
     end
 end # Final Enumerable
 
