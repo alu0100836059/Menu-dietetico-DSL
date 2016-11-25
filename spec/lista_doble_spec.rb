@@ -233,8 +233,6 @@ describe "Modulo Comparable" do
     @menu_1.insert_beginning(@nodo_1, @nodo_2)
     expect(@menu_1.at(1).value.between?(@nodo_1.value,@nodo_4.value)).to be true 
   end
-  
-  
 end # Final Comparable
 
 end # Final describe Lista
