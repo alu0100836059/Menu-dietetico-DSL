@@ -2,15 +2,10 @@ require "spec_helper"
 
 
 describe Lista do
-  before :all do
+  before :each do
     
-    # Elemento/s de la nueva clase Lista_doble
+    # Instancia de la nueva clase Lista_doble
     @menu_1 = Lista::Lista_doble.new
-    @menu_2 = Lista::Lista_doble.new
-    @menu_3 = Lista::Lista_doble.new
-    @menu_4 = Lista::Lista_doble.new
-    @menu_5 = Lista::Lista_doble.new
-    @menu_6 = Lista::Lista_doble.new
     
     # Comidas del día
     @comida_1 = Menu.new("DESAYUNO", "15%", ["Leche desnatada", "Cacao instantáneo",
@@ -59,11 +54,16 @@ describe Lista do
     @nodo_e1 = Lista::Node.new(nil, @cmd_edad1, nil)
     
     # variables para las comparaciones
-    @menu_desayuno = "DESAYUNO (15%)\n- Leche desnatada, 1 vaso, 200 ml\n"+
+    @check_nodo_1 = "DESAYUNO (15%)\n- Leche desnatada, 1 vaso, 200 ml\n"+
                      "- Cacao instantáneo, 1 c/sopera, 10 g\n"+
                      "- Cereales de desayuno en hojuelas, 1 bol pequeño, 40 g\n"+
                      "- Almendras laminadas, (10 unidades) 2 c/soperas, 10 g\n"+
                      "V.C.T. | %\t288.0 kcal | 17% - 21% - 62%"
+                     
+    @check_nodo_2 = "MEDIA MAÑANA (10%)\n- Cerezas, 10-12 unidades medianas, 120 g\n"+
+                     "- Galletas bifidus con sésamo, 4 unidades, 40 g\n"+
+                     "V.C.T. | %\t255.5 kcal | 7% - 24% - 69%"
+    
     
     @comprobacion_a1 = "Menús pertenecientes a las categorías de alimentos: "+
                     "leche, huevos, pescado, carne y frutos secos:\n"+
@@ -78,7 +78,7 @@ describe Lista do
                     "- Flan de vainilla sin huevo, 1 unidad, 110 g\n"+
                     "V.C.T. | %\t313.6 kcal | 10% - 30% - 60%"
     
-  end # Final de la inicialización :before all
+  end # Final de la inicialización :before each
   
   
 describe "Node" do
@@ -86,7 +86,7 @@ describe "Node" do
   it "Existe un nodo en la lista" do
     expect(@menu_1.get_num_nodos).to eq 0
     @menu_1.insert_beginning(@nodo_1)
-    expect(@menu_1.get_num_nodos).to eq 1
+    expect(@menu_1.get_num_nodos).to eq (1)
   end
   
   it "El nodo posee su siguiente" do
@@ -96,8 +96,9 @@ describe "Node" do
   
   
   it "El nodo contiene los datos correctos" do 
+    @menu_1.insert_beginning(@nodo_1)
     @nodo_1_lista = @menu_1.at(0).value.to_s
-    expect(@nodo_1_lista).to eq(@menu_desayuno)
+    expect(@nodo_1_lista).to eq(@check_nodo_1)
   end
   
 end 
@@ -105,31 +106,33 @@ end
 describe "Lista_doble" do
   
   it "Se extrae el primer elemento de la lista" do
+    @menu_1.insert_beginning(@nodo_1)
     primer_nodo = @menu_1.at(0).value
     expect(@menu_1.extract_first.value).to eq(primer_nodo)
   end
   
   it "Se puede insertar un elemento" do
-    expect(@menu_4.get_num_nodos).to eq(0)
-    @menu_4.insert_beginning(@nodo_1)
-    expect(@menu_4.get_num_nodos).to eq(1)
+    expect(@menu_1.get_num_nodos).to eq(0)
+    @menu_1.insert_beginning(@nodo_1)
+    expect(@menu_1.get_num_nodos).to eq(1)
   end
 
 
   it "Se pueden insertar varios elementos" do
-    expect(@menu_5.get_cabeza).to be_nil
-    expect(@menu_5.get_num_nodos).to eq(0)
-    @menu_5.insert_beginning(@nodo_4, @nodo_5)
-    expect(@menu_5.get_num_nodos).to eq(2)
+    expect(@menu_1.get_cabeza).to be_nil
+    expect(@menu_1.get_num_nodos).to eq(0)
+    @menu_1.insert_beginning(@nodo_1, @nodo_2)
+    expect(@menu_1.get_num_nodos).to eq(2)
   end
   
   it "Debe existir una Lista con su cabeza" do
-    expect(@menu_4.get_cabeza).to_not be_nil
+    @menu_1.insert_beginning(@nodo_1)
+    expect(@menu_1.get_cabeza).to_not be_nil
   end
   
   it "Se crea la lista vacía" do
-    expect(@menu_2.get_cabeza).to be_nil
-    expect(@menu_2.get_num_nodos).to eq(0)
+    expect(@menu_1.get_cabeza).to be_nil
+    expect(@menu_1.get_num_nodos).to eq(0)
   end
   
 end #Lista_doble
@@ -137,26 +140,22 @@ end #Lista_doble
 describe "Inheritance" do
   
   it "Menu_por_alimentos hereda de la clase Menu" do
-    @menu_1.reset
    @menu_1.insert_beginning(@nodo_a1)
    expect(@menu_1.at(0).value).to be_a_kind_of(Menu)
   end
   
   
   it "Se lista adecuadamente el menu segun alimento" do
-    @menu_1.reset
     @menu_1.insert_beginning(@nodo_a1)
     expect(@menu_1.at(0).value.to_s).to eq(@comprobacion_a1)
   end
   
   it "Menu_por_edad hereda de la clase Menu" do
-   @menu_1.reset
    @menu_1.insert_beginning(@nodo_e1)
    expect(@menu_1.at(0).value).to be_a_kind_of(Menu)
   end
   
-    it "Se lista adecuadamente el menu segun el rango de edad" do
-    @menu_1.reset
+  it "Se lista adecuadamente el menu segun el rango de edad" do
     @menu_1.insert_beginning(@nodo_e1)
     expect(@menu_1.at(0).value.to_s).to eq(@comprobacion_e1)
   end
@@ -164,31 +163,12 @@ end # Final Inheritance
 
 describe "Modulo Enumerable" do
   
-    it "Se recorren todos los elementos de la lista" do
-    # @menu_6.insert_beginning(@nodo_1, @nodo_2)
-    @menu_6.reset
-    @menu_6.insert_beginning(@nodo_1)
-    
-    # @nodo_1 - Desayuno @nodo_2 - Media Mañana 
-    # Prueba para comprobar el correcto movimiento
-    puts @menu_6.get_num_nodos
-    puts "\n Nodo previo: \n"
-    puts @menu_6.at(0).previous
-    puts "\ Nodo valor: \n"
-    puts @menu_6.at(0).value
-    puts "\n Nodo siguiente: \n"
-    puts @menu_6.at(0).next.value
-    # puts "\n Nodo dos previo: \n"
-    # puts @menu_6.at(1).previous.value
-    # puts "\n Nodo dos valor: \n"
-    # puts @menu_6.at(1).value
-    # puts "\n Nodo dos siguiente: \n"
-    # puts @menu_6.at(1).next
-    
-    
-    
-    # Aquí entra en bucle
-    #@menu_1.map{|nodo| puts nodo}
+    it "Se recorren todos los elementos de la lista mostrandolos OK" do
+      @menu_1.insert_beginning(@nodo_1, @nodo_2)
+      @concat_nodo1_2 = @check_nodo_2+@check_nodo_1
+      @concat_each = ""
+      @menu_1.each{|nodo| @concat_each<<"#{nodo}"}
+      expect(@concat_nodo1_2).to eq (@concat_each)
     end
 end # Final Enumerable
 

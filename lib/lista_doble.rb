@@ -33,20 +33,20 @@ module Lista
     
     #  # :no_required
     #  # Esperamos val como un numero variable de nodos
-    #  def insert_final(*val)
+     def insert_final(*val)
          
-    #      val.each do |nuevo_nodo|
+         val.each do |nuevo_nodo|
         
-    #     if @tail != nil
-    #         @tail.next = nuevo_nodo
-    #         nuevo_nodo.previous = @tail
-    #         @tail = nuevo_nodo
-    #     else
-    #         @head = @tail = nuevo_nodo
-    #     end
-    #     @num_nodos += 1
-    #     end
-    # end
+        if @tail != nil
+            @tail.next = nuevo_nodo
+            nuevo_nodo.previous = @tail
+            @tail = nuevo_nodo
+        else
+            @head = @tail = nuevo_nodo
+        end
+        @num_nodos += 1
+        end
+    end
     
     # Esperamos val como un numero variable de nodos
     def insert_beginning(*val)
