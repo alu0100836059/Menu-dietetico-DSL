@@ -171,10 +171,21 @@ describe "Modulo Enumerable" do
       expect(@concat_nodo1_2).to eq (@concat_each)
     end
     
+    it ".all" do
+      @menu_1.insert_beginning(@nodo_1, @nodo_2)
+      expect(@menu_1.all?{|nodo| nodo.class == Menu}).to be true
+    end
+    
     it ".any" do
       @menu_1.insert_beginning(@nodo_1, @nodo_2)
-      # Si encuentra coincidencia any? devolverá TRUE
       expect(@menu_1.any? {|nodo| nodo.to_s == "#{@check_nodo_1}"}).to be true
+    end
+    
+    it ".map" do
+      @menu_1.insert_beginning(@nodo_1, @nodo_2)
+      @array_map = ["#{@check_nodo_2}","#{@check_nodo_1}"]
+      @concat_cycle = @menu_1.map{|nodo| nodo.to_s}
+      expect(@concat_cycle).to eq(@array_map)
     end
     
     it ".count" do
@@ -192,6 +203,37 @@ describe "Modulo Enumerable" do
 end # Final Enumerable
 
 describe "Modulo Comparable" do
+  
+  it ".<" do
+    @menu_1.insert_beginning(@nodo_1, @nodo_2)
+    expect(@menu_1.at(0).value).to be < (@menu_1.at(1).value) 
+  end
+  
+  it ".>" do
+    @menu_1.insert_beginning(@nodo_1, @nodo_3)
+    expect(@menu_1.at(0).value).to be > (@menu_1.at(1).value) 
+  end
+  
+  it ".==" do
+    @menu_1.insert_beginning(@nodo_1, @nodo_1)
+    expect(@menu_1.at(0).value).to be == (@menu_1.at(1).value) 
+  end
+  
+  it ".<=" do
+    @menu_1.insert_beginning(@nodo_1, @nodo_1)
+    expect(@menu_1.at(0).value).to be <= (@menu_1.at(1).value) 
+  end
+  
+  it ".>=" do
+    @menu_1.insert_beginning(@nodo_1, @nodo_1)
+    expect(@menu_1.at(0).value).to be >= (@menu_1.at(1).value) 
+  end
+  
+  it ".between" do
+    @menu_1.insert_beginning(@nodo_1, @nodo_2)
+    expect(@menu_1.at(1).value.between?(@nodo_1.value,@nodo_4.value)).to be true 
+  end
+  
   
 end # Final Comparable
 
