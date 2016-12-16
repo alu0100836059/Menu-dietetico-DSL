@@ -103,9 +103,15 @@ describe Lista do
               end
               
               
-              @platos_dsl = "\t\tDescripción: Macarrones con salsa de tomate y queso parmesano\n\t\t"+
-                            "Porción: 1 1/2 cucharón\n\t\...amos: 180\n\n", "\t\tDescripción: Pan de trigo integral\n\t\t"+
+              @platos_dsl_exp = "\t\tDescripción: Macarrones con salsa de tomate y queso parmesano\n\t\t"+
+                            "Porción: 1 1/2 cucharón\n\t\tGramos: 200\n\n, \t\tDescripción: Escalope de ternera\n\t\t"+
+                            "Porción: 1 bistec mediano\n\t\tGramos: 100\n\n, \t\tDescripción: Ensalada básica con zanahoria rallada\n\t\t"+
+                            "Porción: guarnición\n\t\tGramos: 120\n\n, \t\tDescripción: Mandarina\n\t\t"+
+                            "Porción: 1 grande\n\t\tGramos: 180\n\n, \t\tDescripción: Pan de trigo integral\n\t\t"+
                             "Porción: 1 rodaja\n\t\tGramos: 20\n\n"
+                            
+                            
+              @porcent_dsl_exp = "\t\tV.C.T: 785.9\n\t\tProteínas: 19\n\t\tGrasas: 34\n\t\tHidratos: 47\n\n"
               
   end # Final de la inicialización :before each
   
@@ -279,8 +285,12 @@ describe "Menú DSL" do
   # end
   
     it "La entrada posee una lista de platos" do
-    expect(@menu_dsl.platos).to eq(@platos_dsl)
+    expect(@menu_dsl.platos.join(', ')).to eq("#{@platos_dsl_exp}")
   end
+  
+    it "La entrada posee una lista de porcentajes" do
+      expect(@menu_dsl.porcentaje.join(', ')).to eq("#{@porcent_dsl_exp}")
+    end
   
   
 end # Final DSL

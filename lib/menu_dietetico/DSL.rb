@@ -32,19 +32,7 @@ class Menu_DSL
   
   
   
-  def to_s
-      salida = ""
-      salida << "\nTítulo\t#{titulo}"
-      salida << "\n#{'=' * (titulo.size+8)}\n\n"
-      salida << "\nIngesta:\t#{ingestas.join(', ')}"
-      
-      salida << "\nPlatos:\n#{platos.join}"
-      
-      salida << "\nPorcentajes:\n#{porcentaje.join}"
 
-
-      salida
-  end
     
   def ingesta(options = {})
     aux = ""
@@ -80,28 +68,43 @@ class Menu_DSL
     "#{porcentaje}"
   end
 
+    def to_s
+      salida = ""
+      salida << "\nTítulo\t#{titulo}"
+      salida << "\n#{'=' * (titulo.size+8)}\n\n"
+      salida << "\nIngesta:\t#{ingestas.join(', ')}"
+      
+      salida << "\nPlatos:\n#{platos.join}"
+      
+      salida << "\nPorcentajes:\n#{porcentaje.join}"
+
+
+      salida
+  end
+
+
 end
 
-# menu = Menu_DSL.new("Mediodía") do
-#     titulo  "Almuerzo"
-#     ingesta :min => 30, :max => 50
-#     plato   :descripcion => "Macarrones con salsa de tomate y queso parmesano",
-#             :porcion => "1 1/2 cucharón",
-#             :gramos => "200"
+menu = Menu_DSL.new("Mediodía") do
+    titulo  "Almuerzo"
+    ingesta :min => 30, :max => 50
+    plato   :descripcion => "Macarrones con salsa de tomate y queso parmesano",
+            :porcion => "1 1/2 cucharón",
+            :gramos => "200"
     
-#     plato   :descripcion => "Escalope de ternera",
-#             :porcion => "1 bistec mediano",
-#             :gramos => "100"
+    plato   :descripcion => "Escalope de ternera",
+            :porcion => "1 bistec mediano",
+            :gramos => "100"
             
-#     plato   :descripcion => "Ensalada básica con zanahoria rallada",
-#             :porcion => "guarnición",
-#             :gramos => "120"
+    plato   :descripcion => "Ensalada básica con zanahoria rallada",
+            :porcion => "guarnición",
+            :gramos => "120"
             
-#     plato   :descripcion => "Mandarina", :porcion => "1 grande", :gramos => "180"
+    plato   :descripcion => "Mandarina", :porcion => "1 grande", :gramos => "180"
     
-#     plato   :descripcion => "Pan de trigo integral", :porcion => "1 rodaja", :gramos => "20"
-#     porcentajes :vct => 785.9, :proteinas => 19, :grasas => 34, :hidratos => 47
-# end
+    plato   :descripcion => "Pan de trigo integral", :porcion => "1 rodaja", :gramos => "20"
+    porcentajes :vct => 785.9, :proteinas => 19, :grasas => 34, :hidratos => 47
+end
 
 
-# puts menu
+puts menu
