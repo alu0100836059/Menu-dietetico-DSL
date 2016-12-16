@@ -285,11 +285,11 @@ describe "Menú DSL" do
   # end
   
     it "La entrada posee una lista de platos" do
-    expect(@menu_dsl.platos.join(', ')).to eq("#{@platos_dsl_exp}")
+    expect(@menu_dsl.get_platos).to eq("#{@platos_dsl_exp}")
   end
   
     it "La entrada posee una lista de porcentajes" do
-      expect(@menu_dsl.porcentaje.join(', ')).to eq("#{@porcent_dsl_exp}")
+       expect(@menu_dsl.get_porcentaje).to eq("#{@porcent_dsl_exp}")
     end
   
   

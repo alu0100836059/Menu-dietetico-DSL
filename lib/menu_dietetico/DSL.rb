@@ -55,7 +55,21 @@ class Menu_DSL
     "#{platos}"
   end
 
-
+  def get_porcentaje
+    porcentajes = ""
+    porcentajes << @porcentaje.join(', ')
+    porcentajes
+    end
+    
+    
+    
+    def get_platos
+    l_platos = ""
+    l_platos << @platos.join(', ')
+    
+    l_platos
+    end
+    
   def porcentajes(options={})
     aux = ""
     aux << "\t\tV.C.T: #{options[:vct]}\n" if options[:vct]
