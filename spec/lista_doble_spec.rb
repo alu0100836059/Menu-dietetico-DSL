@@ -78,6 +78,35 @@ describe Lista do
                     "- Flan de vainilla sin huevo, 1 unidad, 110 g\n"+
                     "V.C.T. | %\t313.6 kcal | 10% - 30% - 60%"
     
+    
+    
+    # Instancia DSL
+              @menu_dsl = Menu_DSL.new("Mediodía") do
+              titulo  "Almuerzo"
+              ingesta :min => 30, :max => 50
+              plato   :descripcion => "Macarrones con salsa de tomate y queso parmesano",
+                      :porcion => "1 1/2 cucharón",
+                      :gramos => "200"
+              
+              plato   :descripcion => "Escalope de ternera",
+                      :porcion => "1 bistec mediano",
+                      :gramos => "100"
+                      
+              plato   :descripcion => "Ensalada básica con zanahoria rallada",
+                      :porcion => "guarnición",
+                      :gramos => "120"
+                      
+              plato   :descripcion => "Mandarina", :porcion => "1 grande", :gramos => "180"
+              
+              plato   :descripcion => "Pan de trigo integral", :porcion => "1 rodaja", :gramos => "20"
+              porcentajes :vct => 785.9, :proteinas => 19, :grasas => 34, :hidratos => 47
+              end
+              
+              
+              @platos_dsl = "\t\tDescripción: Macarrones con salsa de tomate y queso parmesano\n\t\t"+
+                            "Porción: 1 1/2 cucharón\n\t\...amos: 180\n\n", "\t\tDescripción: Pan de trigo integral\n\t\t"+
+                            "Porción: 1 rodaja\n\t\tGramos: 20\n\n"
+              
   end # Final de la inicialización :before each
   
   
@@ -234,5 +263,26 @@ describe "Modulo Comparable" do
     expect(@menu_1.at(1).value.between?(@nodo_1.value,@nodo_4.value)).to be true 
   end
 end # Final Comparable
+
+
+describe "Menú DSL" do
+  it "La entrada posee una etiqueta" do
+    expect(@menu_dsl.etiqueta).to eq("Mediodía")
+  end
+  
+    it "La entrada posee una titulo" do
+    expect(@menu_dsl.titulo).to eq("Almuerzo")
+  end
+  
+  #   it "La entrada posee una lista de platos" do
+  #   expect(@menu_dsl).to eq("Mediodía")
+  # end
+  
+    it "La entrada posee una lista de platos" do
+    expect(@menu_dsl.platos).to eq(@platos_dsl)
+  end
+  
+  
+end # Final DSL
 
 end # Final describe Lista
